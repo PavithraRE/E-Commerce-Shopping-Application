@@ -1,0 +1,29 @@
+server:
+  port: 8084
+  servlet:
+    context-path: /api/cart
+
+spring:
+  application:
+    name: cart-service
+  
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/ekart_cart
+      auto-index-creation: true
+
+# CORS Configuration
+cors:
+  allowed-origins: http://localhost:3000,http://localhost:5173
+  allowed-methods: GET,POST,PUT,DELETE,OPTIONS
+  allowed-headers: "*"
+  allow-credentials: true
+  max-age: 3600
+
+# Swagger/OpenAPI Configuration
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true

@@ -1,0 +1,12 @@
+D:\E-Commerce_Shopping_App\backend\product-service\src\main\java\com\ekart\product\config\OpenApiConfig.java
+D:\E-Commerce_Shopping_App\backend\product-service\src\main\java\com\ekart\product\model\Product.java
+D:\E-Commerce_Shopping_App\backend\product-service\src\main\java\com\ekart\product\ProductServiceApplication.java
+D:\E-Commerce_Shopping_App\backend\product-service\src\main\java\com\ekart\product\repository\CategoryRepository.java
+D:\E-Commerce_Shopping_App\backend\product-service\src\main\java\com\ekart\product\controller\ProductController.java
+D:\E-Commerce_Shopping_App\backend\product-service\src\main\java\com\ekart\product\config\CorsConfig.java
+D:\E-Commerce_Shopping_App\backend\product-service\src\main\java\com\ekart\product\dto\ProductRequest.java
+D:\E-Commerce_Shopping_App\backend\product-service\src\main\java\com\ekart\product\dto\ProductResponse.java
+D:\E-Commerce_Shopping_App\backend\product-service\src\main\java\com\ekart\product\model\Category.java
+D:\E-Commerce_Shopping_App\backend\product-service\src\main\java\com\ekart\product\service\ProductService.java
+D:\E-Commerce_Shopping_App\backend\product-service\src\main\java\com\ekart\product\repository\ProductRepository.java
+D:\E-Commerce_Shopping_App\backend\product-service\src\main\java\com\ekart\product\exception\GlobalExceptionHandler.java

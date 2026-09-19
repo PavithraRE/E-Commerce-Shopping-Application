@@ -1,0 +1,132 @@
+version: '3.8'
+
+services:
+  # MySQL Database for Authentication Service
+  mysql:
+    image: mysql:8.0
+    container_name: ekart-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: ekart_auth
+      MYSQL_USER: ekart_user
+      MYSQL_PASSWORD: ekart_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - ekart-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+
+  # MongoDB for other services
+  mongodb:
+    image: mongo:7.0
+    container_name: ekart-mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb-data:/data/db
+    networks:
+      - ekart-network
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      timeout: 20s
+      retries: 10
+
+  # Authentication Service
+  authentication-service:
+    build:
+      context: ./authentication-service
+      dockerfile: Dockerfile
+    container_name: ekart-auth-service
+    ports:
+      - "8081:8081"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/ekart_auth?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: ekart_user
+      SPRING_DATASOURCE_PASSWORD: ekart_password
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - ekart-network
+    restart: unless-stopped
+
+  # Product Service
+  product-service:
+    build:
+      context: ./product-service
+      dockerfile: Dockerfile
+    container_name: ekart-product-service
+    ports:
+      - "8082:8082"
+    environment:
+      SPRING_DATA_MONGODB_URI: mongodb://mongodb:27017/ekart_products
+    depends_on:
+      mongodb:
+        condition: service_healthy
+    networks:
+      - ekart-network
+    restart: unless-stopped
+
+  # Order Service
+  order-service:
+    build:
+      context: ./order-service
+      dockerfile: Dockerfile
+    container_name: ekart-order-service
+    ports:
+      - "8083:8083"
+    environment:
+      SPRING_DATA_MONGODB_URI: mongodb://mongodb:27017/ekart_orders
+    depends_on:
+      mongodb:
+        condition: service_healthy
+    networks:
+      - ekart-network
+    restart: unless-stopped
+
+  # Cart Service
+  cart-service:
+    build:
+      context: ./cart-service
+      dockerfile: Dockerfile
+    container_name: ekart-cart-service
+    ports:
+      - "8084:8084"
+    environment:
+      SPRING_DATA_MONGODB_URI: mongodb://mongodb:27017/ekart_cart
+    depends_on:
+      mongodb:
+        condition: service_healthy
+    networks:
+      - ekart-network
+    restart: unless-stopped
+
+  # Review Service
+  review-service:
+    build:
+      context: ./review-service
+      dockerfile: Dockerfile
+    container_name: ekart-review-service
+    ports:
+      - "8085:8085"
+    environment:
+      SPRING_DATA_MONGODB_URI: mongodb://mongodb:27017/ekart_reviews
+    depends_on:
+      mongodb:
+        condition: service_healthy
+    networks:
+      - ekart-network
+    restart: unless-stopped
+
+volumes:
+  mysql-data:
+  mongodb-data:
+
+networks:
+  ekart-network:
+    driver: bridge

@@ -1,0 +1,16 @@
+D:\E-Commerce_Shopping_App\backend\cart-service\src\main\java\com\ekart\cart\dto\WishlistItemRequest.java
+D:\E-Commerce_Shopping_App\backend\cart-service\src\main\java\com\ekart\cart\repository\CartRepository.java
+D:\E-Commerce_Shopping_App\backend\cart-service\src\main\java\com\ekart\cart\service\CartService.java
+D:\E-Commerce_Shopping_App\backend\cart-service\src\main\java\com\ekart\cart\dto\CartResponse.java
+D:\E-Commerce_Shopping_App\backend\cart-service\src\main\java\com\ekart\cart\model\Cart.java
+D:\E-Commerce_Shopping_App\backend\cart-service\src\main\java\com\ekart\cart\config\CorsConfig.java
+D:\E-Commerce_Shopping_App\backend\cart-service\src\main\java\com\ekart\cart\exception\GlobalExceptionHandler.java
+D:\E-Commerce_Shopping_App\backend\cart-service\src\main\java\com\ekart\cart\config\OpenApiConfig.java
+D:\E-Commerce_Shopping_App\backend\cart-service\src\main\java\com\ekart\cart\dto\CartItemRequest.java
+D:\E-Commerce_Shopping_App\backend\cart-service\src\main\java\com\ekart\cart\model\Wishlist.java
+D:\E-Commerce_Shopping_App\backend\cart-service\src\main\java\com\ekart\cart\repository\WishlistRepository.java
+D:\E-Commerce_Shopping_App\backend\cart-service\src\main\java\com\ekart\cart\controller\CartController.java
+D:\E-Commerce_Shopping_App\backend\cart-service\src\main\java\com\ekart\cart\dto\WishlistResponse.java
+D:\E-Commerce_Shopping_App\backend\cart-service\src\main\java\com\ekart\cart\controller\WishlistController.java
+D:\E-Commerce_Shopping_App\backend\cart-service\src\main\java\com\ekart\cart\CartServiceApplication.java
+D:\E-Commerce_Shopping_App\backend\cart-service\src\main\java\com\ekart\cart\service\WishlistService.java
